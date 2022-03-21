@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
               child: Badge(
                 elevation:0,
                 badgeContent: Text('$_items',style: TextStyle(color: Theme.of(context).primaryColor,),),
-                child: Icon(Icons.shopping_bag_outlined),
+                child: Icon(Icons.shopping_cart),
               ),
             ),
           ),

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:softvertex/providers/products.dart';
+import 'package:softvertex/views/details/details.dart';
 import 'package:softvertex/views/home/home.dart';
+
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -10,17 +14,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch:Colors.purple,
-        appBarTheme: AppBarTheme(
-          // color: Colors.purpleAccent,
+    return ChangeNotifierProvider(
+      create: (context) => Products(),
+      child: MaterialApp(
+        theme: ThemeData(
+          primarySwatch:Colors.purple,
+          appBarTheme: AppBarTheme(
+            // color: Colors.purpleAccent,
+          ),
+          
         ),
-        
+        debugShowCheckedModeBanner: false,
+        title: 'sofvertex',
+        home: Home(),
+        routes: {
+          Detail.routeName:(context) => Detail()
+        },
       ),
-      debugShowCheckedModeBanner: false,
-      title: 'sofvertex',
-      home: Home(),
     );
   }
 }
